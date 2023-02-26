@@ -2,11 +2,13 @@
 import Task from './Task.jsx'
 
 function Tasks(props) {
-const array=['дело1','дело2','дело3','дело4','дело5'];
+	function deleteTask(task){
+		props.deleteTask(task);
+	}
 	
 	return (
 	  <div>
-	  {array.map((item)=><Task task={item}/>)}
+	  {props.tasks.map((item,index)=><Task deleteTask={deleteTask} task={item.task} key={index} id={index} name={index.toString()}/>)}
 	  </div>
 	)
   }

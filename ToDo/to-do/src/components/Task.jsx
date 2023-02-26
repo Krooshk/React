@@ -1,13 +1,20 @@
-import CloseIcon from '../assets/close-icon.svg';
+import CloseIcon from '../assets/close-icon-45.svg';
 
 function Task(props) {
 
+	function deleteTask(event){
+		event.stopPropagation();
+		props.deleteTask(props.task);
+	}
+
 
 	return (
-		<label class="checkbox">
-		<input type="checkbox" class="checkbox-round" name='1' value="yes"/>{props.task}
-		<img src={CloseIcon} alt="close"></img>
+		<div className='taskElement'>
+		<label className="checkbox">
+		<input type="checkbox" className="checkbox-round" name={props.name} value="yes"/>{props.task}
 		</label>
+		<div className='iconClose' onClick={deleteTask} ><img src={CloseIcon}  alt="close"></img></div>
+		</div>
 	)
   }
   
