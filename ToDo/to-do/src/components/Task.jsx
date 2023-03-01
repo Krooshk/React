@@ -7,11 +7,17 @@ function Task(props) {
 		props.deleteTask(props.task);
 	}
 
+	function toggleStatus(event){
+		props.toggleStatus(props.task,props.status);
+		event.stopPropagation;
+		console.log('work');
+	}
+
 
 	return (
 		<div className='taskElement'>
-		<label className="checkbox">
-		<input type="checkbox" className="checkbox-round" name={props.name} value="yes"/>{props.task}
+		<label onChange={toggleStatus}  className="checkbox" >
+		<input type="checkbox" className="checkbox-round" defaultChecked={props.status}  name={props.name} value="yes"/>{props.task}
 		</label>
 		<div className='iconClose' onClick={deleteTask} ><img src={CloseIcon}  alt="close"></img></div>
 		</div>

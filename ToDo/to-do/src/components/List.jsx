@@ -20,11 +20,15 @@ function List(props) {
 		props.deleteTask(task,props.name);
 	}
 
+	function toggleStatus(task,status){
+		props.toggleStatus(task,status,props.name);
+	}
+
 	return (
 	  <div>
 	  <h3>{props.name}</h3>
 	  <Input importance={props.name} value={input} onChange={handleChange} addTask={addTask}/>
-	  <Tasks tasks={props.tasks} deleteTask={deleteTask}/>
+	  <Tasks toggleStatus={toggleStatus} tasks={props.tasks} deleteTask={deleteTask}/>
 	  </div>
 	)
   }
